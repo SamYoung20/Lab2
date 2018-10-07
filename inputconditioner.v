@@ -30,6 +30,15 @@ output reg  negativeedge    // 1 clk pulse at falling edge of conditioned
             if( counter == waittime) begin
                 counter <= 0;
                 conditioned <= synchronizer1;
+                if(conditioned > synchronizer0)
+                    positiveedge <= 1
+                else if (conditioned < synchronizer0)
+                    negativeedge <= 1
+                else begin
+                positiveedge <= 0
+                negativeedge <= 0
+                end
+
             end
             else
                 counter <= counter+1;
@@ -39,18 +48,18 @@ output reg  negativeedge    // 1 clk pulse at falling edge of conditioned
     end
 endmodule
 
-module gated_d_latch(
-  input data,
-  input clk,
-  output q
-  );
-
-  wire notQ;
-  wire wire0;
-  wire wire1;
-
-  `NAND nand1(wire0, data, clk);
-  `NAND nand2(wire1, wire0, clk);
-  `NAND nand3(q,wire0, notQ);
-  `NAND nand4(notQ, wire1, q);
-endmodule
+// module gated_d_latch(
+//   input data,
+//   input clk,
+//   output q
+//   );
+//
+//   wire notQ;
+//   wire wire0;
+//   wire wire1;
+//
+//   `NAND nand1(wire0, data, clk);
+//   `NAND nand2(wire1, wire0, clk);
+//   `NAND nand3(q,wire0, notQ);
+//   `NAND nand4(notQ, wire1, q);
+// endmodule
