@@ -4,6 +4,8 @@
 //    2) Debounces input
 //    3) Creates pulses at edge transitions
 //------------------------------------------------------------------------
+`define NAND nand #20
+`define NOT not #10
 
 module inputconditioner
 (
@@ -16,11 +18,11 @@ output reg  negativeedge    // 1 clk pulse at falling edge of conditioned
 
     parameter counterwidth = 3; // Counter size, in bits, >= log2(waittime)
     parameter waittime = 3;     // Debounce delay, in clock cycles
-    
+
     reg[counterwidth-1:0] counter = 0;
     reg synchronizer0 = 0;
     reg synchronizer1 = 0;
-    
+
     always @(posedge clk ) begin
         if(conditioned == synchronizer1)
             counter <= 0;
@@ -29,10 +31,26 @@ output reg  negativeedge    // 1 clk pulse at falling edge of conditioned
                 counter <= 0;
                 conditioned <= synchronizer1;
             end
-            else 
+            else
                 counter <= counter+1;
         end
         synchronizer0 <= noisysignal;
         synchronizer1 <= synchronizer0;
     end
+endmodule
+
+module gated_d_latch(
+  input data,
+  input clk,
+  output q
+  );
+
+  wire notQ;
+  wire wire0;
+  wire wire1;
+
+  `NAND nand1(wire0, data, clk);
+  `NAND nand2(wire1, wire0, clk);
+  `NAND nand3(q,wire0, notQ);
+  `NAND nand4(notQ, wire1, q);
 endmodule
