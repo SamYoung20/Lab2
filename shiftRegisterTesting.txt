@@ -1,0 +1,16 @@
+Case 1:
+Parallel load is always asserted, 8 bits are loaded into place. After these 8 bits are loaded, parallel data in goes to zero, and we observe a full shift in the output.
+
+Case 2:
+Parallel load is never asserted, we observe a reading of serial data into the LSB
+
+Case 3:
+Peripheral clock edge is non-periodic, so we observe non-periodic shifting. Parallel load is always asserted.
+
+Case 4:
+Parallel load is toggled.
+
+Sam: Cases 1 and 2
+Emma: Cases 3 and 4
+
+Due: Midnight October 9
