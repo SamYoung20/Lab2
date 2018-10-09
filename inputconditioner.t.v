@@ -36,13 +36,13 @@ module testConditioner();
 	pin = 0; #50
 	pin = 0; #50
 	pin = 0; #50 //clean low
-	pin = 1; #10 // bounceing high
+	pin = 1; #10 // bouncing high
 	pin = 0; #10
 	pin = 1; #10
 	pin = 1; #50
 	pin = 1; #50
 	pin = 1; #50
-	pin = 1; #50 // bounceing low
+	pin = 1; #10 // bouncing low
 	pin = 0; #50
 	pin = 0; #50
 	pin = 0; #50
