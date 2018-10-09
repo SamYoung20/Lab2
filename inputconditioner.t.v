@@ -1,6 +1,7 @@
 //------------------------------------------------------------------------
 // Input Conditioner test bench
 //------------------------------------------------------------------------
+`timescale 1 ns / 1 ps
 `include "inputconditioner.v"
 module testConditioner();
     reg clk;
@@ -22,7 +23,7 @@ module testConditioner();
     initial begin
         $dumpfile("inputconditioner.vcd");
     	$dumpvars(0, dut);
-	
+
 	pin = 0; #100
 	pin = 1; #50
 	pin = 1; #50
@@ -34,7 +35,7 @@ module testConditioner();
 	pin = 0; #50
 	pin = 0; #50
 	pin = 0; #50
-	pin = 0; #50 //clean low 
+	pin = 0; #50 //clean low
 	pin = 1; #10 // bounceing high
 	pin = 0; #10
 	pin = 1; #10
@@ -45,7 +46,7 @@ module testConditioner();
 	pin = 0; #50
 	pin = 0; #50
 	pin = 0; #50
-	pin = 1; #10 
+	pin = 1; #10
 	pin = 0; #50
 	pin = 0; #50
 	$dumpflush;
@@ -64,7 +65,7 @@ endmodule
 
 
 
-//	#200 data_in = 1'b1; 
+//	#200 data_in = 1'b1;
 //	//reset = 1'b1;
 //	#200 data_in = 1'b1;
 //	//reset = 1'b1;
