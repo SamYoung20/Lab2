@@ -31,8 +31,6 @@ output reg           serialDataOut       // Positive edge synchronized
           shiftregistermem <= {parallelDataIn, serialDataIn};
           parallelDataOut <= shiftregistermem[width-1:0];
         end
-        else
-        // only works when parallelLoad is not asserted
         serialDataOut <= parallelDataOut[width-1];
     end
 endmodule
