@@ -22,7 +22,6 @@ output reg           serialDataOut       // Positive edge synchronized
     always @(posedge clk) begin
         if( parallelLoad == 1)
           // When parallelLoad is asserted, the shift register will take the value of parallelDataIn.
-
         parallelDataOut <= parallelDataIn;
         //--
         else if (peripheralClkEdge == 1) begin

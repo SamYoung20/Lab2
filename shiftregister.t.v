@@ -40,6 +40,9 @@ module testshiftregister();
     $dumpfile("shifter.vcd");
     $dumpvars(0, dut);
 
+    //Hey Emma! I think the reason that serial stuff doesnt work is because we arent setting peripheral clock edge to anything. I think this clock edge comes from the
+    //input conditioner "rising" variable. But I am not entirely sure what input we need to condition? I think its a button press on the FPGA but for this test, just a  random
+    // on off signal ?  I think so. Lets chat
 
     //Case 1: PIPO
     //Parallel load is always asserted, 8 bits are loaded into place. After these 8 bits are loaded, parallel data in goes to zero, and we observe a full shift in the output.
