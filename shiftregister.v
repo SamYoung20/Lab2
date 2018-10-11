@@ -31,5 +31,6 @@ output reg           serialDataOut       // Positive edge synchronized
           parallelDataOut <= shiftregistermem[width-1:0];
         end
         serialDataOut <= parallelDataOut[width-1];
+        shiftregistermem <= {parallelDataIn, serialDataIn};
     end
 endmodule

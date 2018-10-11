@@ -48,6 +48,7 @@ module testshiftregister();
     //Parallel load is always asserted, 8 bits are loaded into place. After these 8 bits are loaded, parallel data in goes to zero, and we observe a full shift in the output.
     parallelDataIn = 8'b11001100;
     parallelLoad= 1;
+    serialDataIn = 0;
     #20;
     $display("current register   %b", parallelDataOut);
     parallelDataIn = 8'b0000000;
@@ -63,16 +64,17 @@ module testshiftregister();
     //Parallel load is never asserted, we observe a reading of serial data into the LSB
     parallelLoad = 0;
     serialDataIn = 1;
+    #5
     parallelDataIn = 8'b0110000;
-    #20;
+    #15;
     // not working as expected // GTKWAVE does not register serial dataout as getting anything written to it. we should look at shift register.v
     $display("current register LSB   %b", parallelDataOut);
     serialDataIn = 0;
-    parallelDataIn = 8'b0010100;
+    //parallelDataIn = 8'b0010100;
     #20;
     $display("current register LSB   %b", serialDataOut);
     serialDataIn = 1;
-    parallelDataIn = 8'b1000101;
+    //parallelDataIn = 8'b1000101;
     #20;
     $display("current register LSB   %b", serialDataOut);
 
@@ -84,6 +86,7 @@ module testshiftregister();
 
     parallelDataIn = 8'b11001100; #20
     parallelLoad= 1;
+    serialDataIn = 1;
     #5;
     $display("current register   %b", parallelDataOut);
     parallelDataIn = 8'b0000000;
@@ -91,7 +94,7 @@ module testshiftregister();
     #27;
     $display("current register   %b", parallelDataOut);
     parallelDataIn = 8'b1010101;
-    serialDataIn = 0;
+    serialDataIn = 1;
     #20;
     $display("current register   %b", parallelDataOut);
 
