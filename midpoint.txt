@@ -1,0 +1,24 @@
+The goal of loading onto the FPGA was to test the shift register using serial inputs.
+
+Test zero: We reset parallelIn by pushing button 0. This initial value was 01010101.
+
+From here, we conducted a series of tests.
+
+Test one: 0,0,0... until we clear the register
+Test two: All ones until we fill the register
+Test three: Alternating pattern of zeros and ones to set register to a random value
+
+In order to give the FPGA these inputs, we change the value of switch zero to be high
+or low. We change switch one to go high, and we observe the addition of the value on
+switch zero to the end of the shift register. We are able to observe the four LSB
+of the register by pressing button 2, and the four MSB by pressing button 3.
+
+To load all zeros, we keep switch zero low. We flip switch 1 up and down 8 times
+to load them all onto the register and clear the previous value. The opposite
+holds true for loading all ones.
+
+We press button zero to reset the entirety of the register to its initial
+value. 
+
+We took videos of these tests, shown here:
+https://photos.app.goo.gl/6hPELRj277nuXNpi6
