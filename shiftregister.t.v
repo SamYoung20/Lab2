@@ -25,7 +25,7 @@ module testshiftregister();
     initial clk=0;
     initial peripheralClkEdge = 0;
     always #10 clk=!clk;    // 50MHz Clock
-
+/*
     always
       begin
       peripheralClkEdge <= 1'b0;
@@ -35,7 +35,7 @@ module testshiftregister();
       peripheralClkEdge <= 1'b0;
       #9;
       end
-
+*/
     initial begin
     $dumpfile("shifter.vcd");
     $dumpvars(0, dut);
@@ -46,29 +46,80 @@ module testshiftregister();
 
     //Case 1: PIPO
     //Parallel load is always asserted, 8 bits are loaded into place. After these 8 bits are loaded, parallel data in goes to zero, and we observe a full shift in the output.
+    $display("PIPO");
+
+    parallelLoad = 1;
     parallelDataIn = 8'b11001100;
-    parallelLoad= 1;
-    serialDataIn = 0;
-    #20;
+
+    #50;
     $display("current register   %b", parallelDataOut);
     parallelDataIn = 8'b0000000;
-    #20;
+    #50;
     $display("current register   %b", parallelDataOut);
     parallelDataIn = 8'b1010101;
-    #20;
+    #50;
     $display("current register   %b", parallelDataOut);
 
 
 
     //Case 2: SIS0
     //Parallel load is never asserted, we observe a reading of serial data into the LSB
+
+    parallelLoad = 1;
+    parallelDataIn = 8'b1010101;
+    #50
+    // not working as expected // GTKWAVE does not register serial dataout as getting anything written to it. we should look at shift register.v
+    $display("Parallel Output Register   %b", parallelDataOut);
+    parallelLoad = 0;
+    serialDataIn = 0;
+    //parallelDataIn = 8'b0010100;
+    #20;
+    $display("current register LSB   %b", serialDataOut);
+    serialDataIn = 1;
+    //parallelDataIn = 8'b1000101;
+    #50;
+    $display("current register LSB   %b", serialDataOut);
+
+
+    //case 3:
+    //Case 2: SIPO
+    //Parallel load is never asserted, we observe a reading of serial data into the LSB
+    parallelLoad = 1;
+    parallelDataIn = 8'b00000000;
+    #50
+    $display("SIPO   %b", parallelDataOut);
     parallelLoad = 0;
     serialDataIn = 1;
-    #5
-    parallelDataIn = 8'b0110000;
+    peripheralClkEdge = 1;
+    $display("current register   %b", parallelDataOut);
+    #20
+    serialDataIn = 1;
+    $display("current register   %b", parallelDataOut);
+    #50
+    serialDataIn = 0;
+    $display("current register   %b", parallelDataOut);
+    #50
+    serialDataIn = 1;
+    $display("current register   %b", parallelDataOut);
+    #50
+    serialDataIn = 1;
+    $display("current register   %b", parallelDataOut);
+    #50
+    serialDataIn = 1;
+    $display("current register   %b", parallelDataOut);
+    #50
+    serialDataIn = 1;
+    $display("current register   %b", parallelDataOut);
+    #50
+    serialDataIn = 1;
+    $display("current register   %b", parallelDataOut);
+    #50
+
+    $display("next case");
+
     #15;
     // not working as expected // GTKWAVE does not register serial dataout as getting anything written to it. we should look at shift register.v
-    $display("current register LSB   %b", parallelDataOut);
+    $display("current register   %b", parallelDataOut);
     serialDataIn = 0;
     //parallelDataIn = 8'b0010100;
     #20;
@@ -77,7 +128,6 @@ module testshiftregister();
     //parallelDataIn = 8'b1000101;
     #20;
     $display("current register LSB   %b", serialDataOut);
-
     //Case 3:
     //Peripheral clock edge is non-periodic, so we observe non-periodic shifting. Parallel load is always asserted.
 

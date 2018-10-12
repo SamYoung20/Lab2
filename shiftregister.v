@@ -18,7 +18,28 @@ output reg[width-1:0]  parallelDataOut,    // Shift reg data contents
 output reg           serialDataOut       // Positive edge synchronized
 );
 
-    reg [width:0]      shiftregistermem;
+    reg [width-1:0]      shiftregistermem;
+    //assign parallelDataOut = shiftregistermem;
+    initial shiftregistermem = 0;
+
+    always @(posedge clk) begin
+        if( parallelLoad == 1)
+          // When parallelLoad is asserted, the shift register will take the value of parallelDataIn.
+            shiftregistermem <= parallelDataIn;
+        //--
+        else if (peripheralClkEdge == 1) begin
+          // When the peripheral clock peripheralClkEdge has an edge, the shift register advances one position:
+          // serialDataIn is loaded into the LSB (Least Significant Bit), and the rest of the bits shift up by one.
+          shiftregistermem <= {shiftregistermem[width-2:0], serialDataIn};
+          //parallelDataOut <= shiftregistermem[width-1:0];
+          //hiftregistermem <= parallelDataOut;
+        end
+        serialDataOut <= shiftregistermem[width-1];
+        parallelDataOut <= shiftregistermem;
+        //shiftregistermem <= parallelDataOut;
+    end
+
+/*
     always @(posedge clk) begin
         if( parallelLoad == 1)
           // When parallelLoad is asserted, the shift register will take the value of parallelDataIn.
@@ -29,8 +50,10 @@ output reg           serialDataOut       // Positive edge synchronized
           // serialDataIn is loaded into the LSB (Least Significant Bit), and the rest of the bits shift up by one.
           shiftregistermem <= {parallelDataIn, serialDataIn};
           parallelDataOut <= shiftregistermem[width-1:0];
+          shiftregistermem <= parallelDataOut;
         end
         serialDataOut <= parallelDataOut[width-1];
         shiftregistermem <= {parallelDataIn, serialDataIn};
     end
+  */
 endmodule
