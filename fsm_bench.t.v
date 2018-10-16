@@ -12,6 +12,7 @@ module fsm_test ();
     fsm dut(.clk(clk), .negativeedge_sclk(negativeedge_sclk),
                    .positiveedge_sclk(positiveedge_sclk), .cs(cs),
                    .mosi(mosi), .MISO_BUF(MISO_BUF), .ADDR_WE(ADDR_WE), .DM_WE(DM_WE), .SR_WE(SR_WE));
+                   
     // Create clock signal
     initial clk=0;
     always #10 clk =! clk;

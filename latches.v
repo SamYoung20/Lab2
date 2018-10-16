@@ -16,6 +16,8 @@ input		clk
     end
 endmodule
 
+// 8 bit latch memory
+// throws out the MSB and writes the other 7 to address
 module addressLatch
 (
 output reg[6:0] address,
@@ -33,6 +35,7 @@ input		clk
 
 endmodule
 
+//tri state buffer leaves output floating if enable is low
 module triStateBuf
 (
 input a, enable,

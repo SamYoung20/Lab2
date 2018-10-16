@@ -59,19 +59,3 @@ output reg  negativeedge    // 1 clk pulse at falling edge of conditioned
     end
 
 endmodule
-
-// module gated_d_latch(
-//    input data,
-//    input clk,
-//    output q
-//    );
-//
-//    wire notQ;
-//    wire wire0;
-//    wire wire1;
-// //
-//    `NAND nand1(wire0, data, clk);
-//    `NAND nand2(wire1, wire0, clk);
-//    `NAND nand3(q,wire0, notQ);
-//    `NAND nand4(notQ, wire1, q);
-//  endmodule

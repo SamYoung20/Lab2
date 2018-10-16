@@ -13,7 +13,7 @@ module fsm
     output reg SR_WE
 );
 
-    // State encoding (one-hot)
+    // State encoding
     reg [4:0] state;
     localparam  IDLE = 5'd0,
 		ACTIVE = 5'd1,
@@ -273,7 +273,7 @@ module fsm
             endcase
         end
 
-    end	// @(posedge clk)
+    end	
 
 
     // Output logic (depends only on state - Moore machine)
