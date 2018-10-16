@@ -1,4 +1,3 @@
-// Simple thermostat finite state machine (Moore) example
 
 module fsm
 (
