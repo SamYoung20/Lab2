@@ -28,22 +28,26 @@ module spi_test ();
        $dumpfile("spi.vcd");
        $dumpvars(0, dut);
        cs_pin = 1;
+       #50
+       cs_pin = 0;
+       #150
        mosi_pin = 1;
-       #100
+       #200
        mosi_pin = 0;
-       #100
+       #200
        mosi_pin = 1;
-       #100
+       #200
        mosi_pin = 0;
-       #100;
+       #200;
        mosi_pin = 1;
-       #100
+       #200
+       mosi_pin = 0;
+       #200
        mosi_pin = 1;
-       #100
+       #200
        mosi_pin = 1;
-       #100
-       mosi_pin = 1;
-       #100
+       #200
+
 
 
 
