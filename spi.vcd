@@ -1,0 +1,752 @@
+$date
+	Tue Oct 16 09:48:13 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module spi_test $end
+$scope module dut $end
+$var wire 1 ! clk $end
+$var wire 1 " cs_pin $end
+$var wire 4 # leds [3:0] $end
+$var wire 1 $ mosi_pin $end
+$var wire 1 % sclk_pin $end
+$var wire 8 & shiftRegOutP [7:0] $end
+$var wire 1 ' serialDataOut $end
+$var wire 1 ( sclk_rising $end
+$var wire 1 ) sclk_falling $end
+$var wire 1 * sclk_conditioned $end
+$var wire 1 + mosi_rising $end
+$var wire 1 , mosi_falling $end
+$var wire 1 - mosi_conditioned $end
+$var wire 1 . miso_pin $end
+$var wire 1 / dff_out $end
+$var wire 8 0 dataMemOut [7:0] $end
+$var wire 1 1 cs_rising $end
+$var wire 1 2 cs_falling $end
+$var wire 1 3 cs_conditioned $end
+$var wire 7 4 address [6:0] $end
+$var wire 1 5 SR_WE $end
+$var wire 1 6 MISO_BUF $end
+$var wire 1 7 DM_WE $end
+$var wire 1 8 ADDR_WE $end
+$scope module addrLtch $end
+$var wire 1 ! clk $end
+$var wire 1 8 wrenable $end
+$var wire 8 9 data [7:0] $end
+$var reg 7 : address [6:0] $end
+$upscope $end
+$scope module cs_inputcond $end
+$var wire 1 ! clk $end
+$var wire 1 " noisysignal $end
+$var reg 1 3 conditioned $end
+$var reg 3 ; counter [2:0] $end
+$var reg 1 2 negativeedge $end
+$var reg 1 < negedgecounter $end
+$var reg 1 = posedgecounter $end
+$var reg 1 1 positiveedge $end
+$var reg 1 > synchronizer0 $end
+$var reg 1 ? synchronizer1 $end
+$upscope $end
+$scope module dflipf $end
+$var wire 1 ! clk $end
+$var wire 1 ) wrenable $end
+$var wire 1 ' d $end
+$var reg 1 / q $end
+$upscope $end
+$scope module dm $end
+$var wire 7 @ address [6:0] $end
+$var wire 1 ! clk $end
+$var wire 1 7 writeEnable $end
+$var wire 8 A dataIn [7:0] $end
+$var reg 8 B dataOut [7:0] $end
+$upscope $end
+$scope module finitestate $end
+$var wire 1 ! clk $end
+$var wire 1 3 cs $end
+$var wire 1 ( positiveedge_sclk $end
+$var wire 1 ) negativeedge_sclk $end
+$var wire 1 - mosi $end
+$var reg 1 8 ADDR_WE $end
+$var reg 1 7 DM_WE $end
+$var reg 1 6 MISO_BUF $end
+$var reg 1 5 SR_WE $end
+$var reg 5 C state [4:0] $end
+$upscope $end
+$scope module mosi_inputcond $end
+$var wire 1 ! clk $end
+$var wire 1 $ noisysignal $end
+$var reg 1 - conditioned $end
+$var reg 3 D counter [2:0] $end
+$var reg 1 , negativeedge $end
+$var reg 1 E negedgecounter $end
+$var reg 1 F posedgecounter $end
+$var reg 1 + positiveedge $end
+$var reg 1 G synchronizer0 $end
+$var reg 1 H synchronizer1 $end
+$upscope $end
+$scope module sclk_inputcond $end
+$var wire 1 ! clk $end
+$var wire 1 % noisysignal $end
+$var reg 1 * conditioned $end
+$var reg 3 I counter [2:0] $end
+$var reg 1 ) negativeedge $end
+$var reg 1 J negedgecounter $end
+$var reg 1 K posedgecounter $end
+$var reg 1 ( positiveedge $end
+$var reg 1 L synchronizer0 $end
+$var reg 1 M synchronizer1 $end
+$upscope $end
+$scope module shiftreg $end
+$var wire 1 ! clk $end
+$var wire 8 N parallelDataIn [7:0] $end
+$var wire 1 5 parallelLoad $end
+$var wire 1 ( peripheralClkEdge $end
+$var wire 1 - serialDataIn $end
+$var reg 8 O parallelDataOut [7:0] $end
+$var reg 1 ' serialDataOut $end
+$var reg 8 P shiftregistermem [7:0] $end
+$upscope $end
+$scope module tsb $end
+$var wire 1 / a $end
+$var wire 1 6 enable $end
+$var wire 1 . b $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 P
+bx O
+bx N
+0M
+0L
+0K
+0J
+b0 I
+0H
+0G
+0F
+0E
+b0 D
+bx C
+bx B
+bx A
+b0 @
+0?
+0>
+0=
+0<
+b0 ;
+b0 :
+bx 9
+x8
+x7
+x6
+x5
+b0 4
+x3
+x2
+x1
+bx 0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+bx &
+0%
+1$
+bz #
+1"
+0!
+$end
+#10000
+1G
+b1 D
+b1 I
+1>
+b1 ;
+b0 &
+b0 A
+b0 O
+0'
+1!
+#20000
+0!
+#30000
+1?
+b10 ;
+b10 I
+1H
+b10 D
+1!
+#40000
+0!
+#50000
+b11 D
+b11 I
+b11 ;
+1!
+#60000
+0!
+#70000
+13
+b100 ;
+0*
+b100 I
+1-
+b100 D
+1!
+#80000
+0!
+#90000
+z.
+05
+07
+08
+06
+b0 D
+b0 I
+b0 ;
+b0 C
+1!
+#100000
+0!
+0$
+1%
+#110000
+1L
+0G
+1!
+#120000
+0!
+#130000
+0H
+1M
+1!
+#140000
+0!
+#150000
+b1 I
+b1 D
+1!
+#160000
+0!
+#170000
+b10 D
+b10 I
+1!
+#180000
+0!
+#190000
+b11 I
+b11 D
+1!
+#200000
+0!
+1$
+0%
+#210000
+1G
+1E
+1,
+0-
+b100 D
+0L
+1K
+1(
+1*
+b100 I
+1!
+#220000
+0!
+#230000
+0M
+b0 I
+0K
+0(
+1H
+b0 D
+0E
+0,
+1!
+#240000
+0!
+#250000
+b1 D
+b1 I
+1!
+#260000
+0!
+#270000
+b10 I
+b10 D
+1!
+#280000
+0!
+#290000
+b11 D
+b11 I
+1!
+#300000
+0!
+0$
+1%
+#310000
+1L
+1J
+1)
+0*
+b100 I
+0G
+1F
+1+
+1-
+b100 D
+1!
+#320000
+0!
+#330000
+0H
+b0 D
+0F
+0+
+1M
+b0 I
+0J
+0)
+0/
+1!
+#340000
+0!
+#350000
+b1 I
+b1 D
+1!
+#360000
+0!
+#370000
+b10 D
+b10 I
+1!
+#380000
+0!
+#390000
+b11 I
+b11 D
+1!
+#400000
+0!
+1$
+0%
+#410000
+1G
+1E
+1,
+0-
+b100 D
+0L
+1K
+1(
+1*
+b100 I
+1!
+#420000
+0!
+#430000
+0M
+b0 I
+0K
+0(
+1H
+b0 D
+0E
+0,
+1!
+#440000
+0!
+#450000
+b1 D
+b1 I
+1!
+#460000
+0!
+#470000
+b10 I
+b10 D
+1!
+#480000
+0!
+#490000
+b11 D
+b11 I
+1!
+#500000
+0!
+1%
+#510000
+1L
+1J
+1)
+0*
+b100 I
+1F
+1+
+1-
+b100 D
+1!
+#520000
+0!
+#530000
+b0 D
+0F
+0+
+1M
+b0 I
+0J
+0)
+1!
+#540000
+0!
+#550000
+b1 I
+1!
+#560000
+0!
+#570000
+b10 I
+1!
+#580000
+0!
+#590000
+b11 I
+1!
+#600000
+0!
+0%
+#610000
+0L
+1K
+1(
+1*
+b100 I
+1!
+#620000
+0!
+#630000
+b1 P
+0M
+b0 I
+0K
+0(
+1!
+#640000
+0!
+#650000
+b1 I
+b1 &
+b1 A
+b1 O
+1!
+#660000
+0!
+#670000
+b10 I
+1!
+#680000
+0!
+#690000
+b11 I
+1!
+#700000
+0!
+1%
+#710000
+1L
+1J
+1)
+0*
+b100 I
+1!
+#720000
+0!
+#730000
+1M
+b0 I
+0J
+0)
+1!
+#740000
+0!
+#750000
+b1 I
+1!
+#760000
+0!
+#770000
+b10 I
+1!
+#780000
+0!
+#790000
+b11 I
+1!
+#800000
+0!
+0%
+#810000
+0L
+1K
+1(
+1*
+b100 I
+1!
+#820000
+0!
+#830000
+b11 P
+0M
+b0 I
+0K
+0(
+1!
+#840000
+0!
+#850000
+b1 I
+b11 &
+b11 A
+b11 O
+1!
+#860000
+0!
+#870000
+b10 I
+1!
+#880000
+0!
+#890000
+b11 I
+1!
+#900000
+0!
+1%
+#910000
+1L
+1J
+1)
+0*
+b100 I
+1!
+#920000
+0!
+#930000
+1M
+b0 I
+0J
+0)
+1!
+#940000
+0!
+#950000
+b1 I
+1!
+#960000
+0!
+#970000
+b10 I
+1!
+#980000
+0!
+#990000
+b11 I
+1!
+#1000000
+0!
+0%
+#1010000
+0L
+1K
+1(
+1*
+b100 I
+1!
+#1020000
+0!
+#1030000
+b111 P
+0M
+b0 I
+0K
+0(
+1!
+#1040000
+0!
+#1050000
+b1 I
+b111 &
+b111 A
+b111 O
+1!
+#1060000
+0!
+#1070000
+b10 I
+1!
+#1080000
+0!
+#1090000
+b11 I
+1!
+#1100000
+0!
+1%
+#1110000
+1L
+1J
+1)
+0*
+b100 I
+1!
+#1120000
+0!
+#1130000
+1M
+b0 I
+0J
+0)
+1!
+#1140000
+0!
+#1150000
+b1 I
+1!
+#1160000
+0!
+#1170000
+b10 I
+1!
+#1180000
+0!
+#1190000
+b11 I
+1!
+#1200000
+0!
+0%
+#1210000
+0L
+1K
+1(
+1*
+b100 I
+1!
+#1220000
+0!
+#1230000
+b1111 P
+0M
+b0 I
+0K
+0(
+1!
+#1240000
+0!
+#1250000
+b1 I
+b1111 &
+b1111 A
+b1111 O
+1!
+#1260000
+0!
+#1270000
+b10 I
+1!
+#1280000
+0!
+#1290000
+b11 I
+1!
+#1300000
+0!
+1%
+#1310000
+1L
+1J
+1)
+0*
+b100 I
+1!
+#1320000
+0!
+#1330000
+1M
+b0 I
+0J
+0)
+1!
+#1340000
+0!
+#1350000
+b1 I
+1!
+#1360000
+0!
+#1370000
+b10 I
+1!
+#1380000
+0!
+#1390000
+b11 I
+1!
+#1400000
+0!
+0%
+#1410000
+0L
+1K
+1(
+1*
+b100 I
+1!
+#1420000
+0!
+#1430000
+b11111 P
+0M
+b0 I
+0K
+0(
+1!
+#1440000
+0!
+#1450000
+b1 I
+b11111 &
+b11111 A
+b11111 O
+1!
+#1460000
+0!
+#1470000
+b10 I
+1!
+#1480000
+0!
+#1490000
+b11 I
+1!
+#1500000
+0!
+1%
