@@ -96,7 +96,7 @@ module fsm_test ();
             //Determining read o
             mosi = 1; #4
             positiveedge_sclk = 1; cs = 0; #6
-            positiveedge_sclk = 0;  #1
+            positiveedge_sclk = 1;  mosi = 0;#120
 
         if(MISO_BUF != 1 || DM_WE != 0 || ADDR_WE != 1 || SR_WE != 0) begin
              $display("error in test #6" );
