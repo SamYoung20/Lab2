@@ -1,4 +1,4 @@
-// Testbench for thermostat FSM example
+// Testbench for finite state machine
 
 `timescale 1ns / 1ps
 
