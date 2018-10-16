@@ -21,3 +21,4 @@ We press button zero to reset the entirety of the register to its initial
 value. 
 
 We took videos of these tests, shown here:
+https://photos.app.goo.gl/6hPELRj277nuXNpi6
