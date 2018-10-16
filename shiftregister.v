@@ -5,6 +5,7 @@
 //      - serial in, parallel out
 //      - parallel in, serial out
 //------------------------------------------------------------------------
+`timescale 1 ns / 1 ps
 
 module shiftregister
 #(parameter width = 8)

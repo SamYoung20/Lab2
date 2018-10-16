@@ -4,7 +4,7 @@
 //   dataOut always has the value mem[address]
 //   If writeEnable is true, writes dataIn to mem[address]
 //------------------------------------------------------------------------
-
+`timescale 1 ns / 1 ps
 module datamemory
 #(
     parameter addresswidth  = 7,

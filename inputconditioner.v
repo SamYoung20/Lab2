@@ -6,6 +6,7 @@
 //------------------------------------------------------------------------
 `define NAND nand #20
 `define NOT not #10
+`timescale 1 ns / 1 ps
 
 module inputconditioner
 (
