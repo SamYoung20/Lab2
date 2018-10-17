@@ -66,6 +66,8 @@ module spi_test ();
        #200
 
        ////
+       #1600
+       #1600
        mosi_pin = 1;
        #200
        mosi_pin = 0;
@@ -83,7 +85,7 @@ module spi_test ();
        mosi_pin = 1;
        #200
        ///////
-      
+
        #200
 
 
