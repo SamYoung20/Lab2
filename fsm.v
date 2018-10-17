@@ -273,7 +273,7 @@ module fsm
             endcase
         end
 
-    end	
+    end
 
 
     // Output logic (depends only on state - Moore machine)

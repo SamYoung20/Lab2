@@ -25,6 +25,7 @@ wire MISO_BUF, ADDR_WE, DM_WE, SR_WE;
 wire[7:0] dataMemOut, shiftRegOutP;
 wire serialDataOut;
 wire[6:0] address;
+//wire[4:0] state;
 wire dff_out;
 
 
@@ -72,7 +73,7 @@ inputconditioner cs_inputcond(.clk(clk),
     .dataIn(shiftRegOutP));
 
   addressLatch addrLtch (.address(address),
-  .data(dataMemOut),
+  .data(shiftRegOutP),
   .wrenable(ADDR_WE),
   .clk(clk));
 
@@ -80,8 +81,6 @@ inputconditioner cs_inputcond(.clk(clk),
     .d(serialDataOut),
     .wrenable(sclk_falling),
     .clk(clk));
-
-      assign MISO_BUF = 1;
 
   triStateBuf tsb(.a(dff_out),
     .enable(MISO_BUF),

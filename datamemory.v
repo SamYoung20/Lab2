@@ -19,7 +19,7 @@ module datamemory
     input [width-1:0]           dataIn
 );
 
-
+    initial dataOut = 0;
     reg [width-1:0] memory [depth-1:0];
 
     always @(posedge clk) begin

@@ -35,9 +35,26 @@ module spi_test ();
        #200
        mosi_pin = 0;
        #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200;
        mosi_pin = 1;
        #200
        mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200
+       ///////
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
        #200;
        mosi_pin = 1;
        #200
@@ -47,6 +64,28 @@ module spi_test ();
        #200
        mosi_pin = 1;
        #200
+
+       ////
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200;
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 1;
+       #200
+       ///////
+      
+       #200
+
 
 
 
@@ -138,7 +177,7 @@ module spi_test ();
              $display("Passed Test 6 : Determining read State");
              end
 */
-     #1000
+     #10000
      $dumpflush;
      $finish;		// End simulation (otherwise clk is infinite)
    end
