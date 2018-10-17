@@ -27,6 +27,8 @@ wire serialDataOut;
 wire[6:0] address;
 wire dff_out;
 
+
+
 inputconditioner mosi_inputcond(.clk(clk),
    .noisysignal(mosi_pin),
   .conditioned(mosi_conditioned),
@@ -79,8 +81,11 @@ inputconditioner cs_inputcond(.clk(clk),
     .wrenable(sclk_falling),
     .clk(clk));
 
+      assign MISO_BUF = 1;
+
   triStateBuf tsb(.a(dff_out),
     .enable(MISO_BUF),
     .b(miso_pin));
+
 
 endmodule
