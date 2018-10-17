@@ -38,8 +38,8 @@ endmodule
 //tri state buffer leaves output floating if enable is low
 module triStateBuf
 (
-input a, enable,
+input a, enable, is_zero,
 output b
 );
-  assign b = (enable) ? a: 1'bz;
+  assign b = ((enable) ? a: 1'bz) & is_zero;
 endmodule

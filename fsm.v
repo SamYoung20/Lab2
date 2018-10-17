@@ -10,7 +10,8 @@ module fsm
     output reg MISO_BUF,
     output reg ADDR_WE,
     output reg DM_WE,
-    output reg SR_WE
+    output reg SR_WE,
+    output reg MISO_EN
 );
 
     // State encoding
@@ -283,156 +284,186 @@ module fsm
                 MISO_BUF = 0;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0; end
             ACTIVE: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             FIND_ADDR0: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0; end
             FIND_ADDR1: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             FIND_ADDR2: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0; end
             FIND_ADDR3: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             FIND_ADDR4: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             FIND_ADDR5: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0; end
             FIND_ADDR6: begin
                 MISO_BUF = 1;
                 ADDR_WE = 1;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
 
             READ_STATE: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 1; end
+                SR_WE = 1;
+                MISO_EN = 0; end
             DM_LOAD_TO_SR: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             DISEN_SR_WE: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
 
             READ0: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
             READ1: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
             READ2: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
             READ3: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
             READ4: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
             READ5: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
             READ6: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
             READ7: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 1; end
 
             WRITE_STATE: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             LOAD_RW: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0; end
 
             WRITE0: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             WRITE1: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             WRITE2: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             WRITE3: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             WRITE4: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             WRITE5: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             WRITE6: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 0;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
             WRITE7: begin
                 MISO_BUF = 1;
                 ADDR_WE = 0;
                 DM_WE = 1;
-                SR_WE = 0; end
+                SR_WE = 0;
+                MISO_EN = 0;end
         endcase
     end
 

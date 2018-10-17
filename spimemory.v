@@ -21,7 +21,7 @@ module spiMemory
 wire mosi_conditioned, mosi_rising, mosi_falling;
 wire sclk_conditioned, sclk_rising, sclk_falling;
 wire cs_conditioned, cs_rising, cs_falling;
-wire MISO_BUF, ADDR_WE, DM_WE, SR_WE;
+wire MISO_BUF, ADDR_WE, DM_WE, SR_WE, MISO_EN;
 wire[7:0] dataMemOut, shiftRegOutP;
 wire serialDataOut;
 wire[6:0] address;
@@ -56,7 +56,8 @@ inputconditioner cs_inputcond(.clk(clk),
    .MISO_BUF(MISO_BUF),
    .ADDR_WE(ADDR_WE),
    .DM_WE(DM_WE),
-   .SR_WE(SR_WE));
+   .SR_WE(SR_WE),
+   .MISO_EN(MISO_EN));
 
   shiftregister shiftreg(.clk(clk),
     .peripheralClkEdge(sclk_rising),
@@ -84,6 +85,7 @@ inputconditioner cs_inputcond(.clk(clk),
 
   triStateBuf tsb(.a(dff_out),
     .enable(MISO_BUF),
+    .is_zero(MISO_EN),
     .b(miso_pin));
 
 
