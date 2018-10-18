@@ -27,10 +27,13 @@ module spi_test ();
    initial begin
        $dumpfile("spi.vcd");
        $dumpvars(0, dut);
+       //start with chip select enabled
        cs_pin = 1;
        #50
+       //disable chip select
        cs_pin = 0;
        #150
+       //write to address 1000100
        mosi_pin = 1;
        #200
        mosi_pin = 0;
@@ -48,6 +51,7 @@ module spi_test ();
        mosi_pin = 0;
        #200
        ///////
+       //write this data , 10111011 to aforementioned address, 1000100
        mosi_pin = 1;
        #200
        mosi_pin = 0;
@@ -62,12 +66,53 @@ module spi_test ();
        #200
        mosi_pin = 1;
        #200
-       mosi_pin = 1;
+       mosi_pin = 0;
        #200
 
+       //wait wait a fill cycle
        ////
        #1600
        #1600
+
+       //write to address 1000101
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200;
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       ///////
+       //write this data , 1010101 to aforementioned address, 1000101
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200;
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       /////
+
+
+       //read from 1000100, the expected miso pin should be  10111010
        mosi_pin = 1;
        #200
        mosi_pin = 0;
@@ -84,10 +129,94 @@ module spi_test ();
        #200
        mosi_pin = 1;
        #200
+
+      #1600
+      #1600
+      #1600
        ///////
+       //read from 1000101, the expected miso pin should be  10101010
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+       #200;
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+      #1600
+      #1600
+      #1600
+       //
+/*
+       //TEST CASE TWO TRY TO WRITE AND READ FROM A NEW ADRESS
+        //write to address 1111111
+
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200;
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       ///////
+       //write this data , 11001111 to aforementioned address, 1110101
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 1;
+       #200;
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 0;
+       #200
+       mosi_pin = 0;
+
+       #1600
+       #1600
+       //read from 1110101, the expected miso pin should be  11001111
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200;
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+       #200
+       mosi_pin = 1;
+
+        #1600
+
 
        #200
-
+*/
 
 
 
